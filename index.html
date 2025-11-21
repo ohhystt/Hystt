@@ -4,16 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- CORRECTION IMAGES : Cette ligne force l'affichage des images hébergées ailleurs -->
+    <!-- CORRECTION IMAGES -->
     <meta name="referrer" content="no-referrer">
 
     <!-- SEO -->
     <title>Hystt.fr | Coach Sportif en Ligne Expert</title>
     <meta name="description" content="Transformez votre corps avec Frank, expert en coaching sportif en ligne. +260 élèves satisfaits.">
-    <meta name="robots" content="index, follow">
-
-    <!-- FAVICON ROBUSTE (Format universel) -->
-    <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSI1MCIgZmlsbD0iIzAwQUE2QyIvPjx0ZXh0IHg9IjUwIiB5PSI3MiIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXdlaWdodD0iYm9sZCIgZm9udC1zaXplPSI2MCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkg8L3RleHQ+PC9zdmc+">
+    
+    <!-- 
+        NOUVEAU FAVICON PREMIUM "SHINY" 
+        - Cercle vert Hystt (#00AA6C)
+        - Lettre H avec dégradé "Lumière" et ombre portée pour l'effet élégant
+        - Marges de sécurité pour éviter les contours bizarres
+    -->
+    <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjggMTI4Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImdyYWQxIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eToxIiAvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6I2UwZmZlMDtzdG9wLW9wYWNpdHk6MSIgLz48L2xpbmVhckdyYWRpZW50PjxmaWx0ZXIgaWQ9ImRyb3BTaGFkb3ciIHg9Ii0yMCUiIHk9Ii0yMCUiIHdpZHRoPSIxNDAlIiBoZWlnaHQ9IjE0MCUiPjxmZUdhdXNzaWFuQmx1ciBpbj0iU291cmNlQWxwaGEiIHN0ZERldmlhdGlvbj0iMiIgLz48ZmVPZmZzZXQgZHg9IjEiIGR5PSIyIiByZXN1bHQ9Im9mZnNldGJsdXIiIC8+PGZlQ29tcG9uZW50VHJhbnNmZXI+PGZlRnVuY0EgdHlwZT0ibGluZWFyIiBzbG9wZT0iMC4zIiAvPjwvZmVDb21wb25lbnRUcmFuc2Zlcj48ZmVNZXJnZT48ZmVNZXJnZU5vZGUgLz48ZmVNZXJnZU5vZGUgaW49IlNvdXJjZUdyYXBoaWMiIC8+PC9mZU1lcmdlPjwvZmlsdGVyPjwvZGVmcz48Y2lyY2xlIGN4PSI2NCIgY3k9IjY0IiByPSI2MCIgZmlsbD0iIzAwQUE2QyIgLz48dGV4dCB4PSI2NCIgeT0iOTIiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC13ZWlnaHQ9ImJvbGQiIGZvbnQtc2l6ZT0iODAiIGZpbGw9InVybCgjZ3JhZDEpIiBmaWx0ZXI9InVybCgjZHJvcFNoYWRvdykiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkg8L3RleHQ+PC9zdmc+">
 
     <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,18 +27,21 @@
     <script src="https://cdn.tailwindcss.com"></script>
     
     <style>
+        /* --- Global --- */
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: #ffffff;
             color: #1d1d1f;
             overflow-x: hidden;
         }
+
         .text-trip { color: #00AA6C; }
         .highlight { color: #00AA6C; font-style: italic; font-weight: 700; }
         
         h1.main-title { font-weight: 800; }
         h1.main-title .special-font { font-family: 'Libre Caslon Text', serif; font-style: italic; font-weight: 400; }
 
+        /* --- Container --- */
         .roadmap-container {
             position: relative;
             width: 100%;
@@ -44,9 +51,11 @@
             min-height: 100vh;
         }
 
+        /* --- SVG Ligne --- */
         .roadmap-svg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
         #path-line { fill: none; stroke: #e5e7eb; stroke-width: 4; stroke-dasharray: 10, 10; stroke-linecap: round; }
         
+        /* --- Avion --- */
         #plane {
             position: absolute; width: 48px; height: 48px; z-index: 5;
             transform-origin: center center;
@@ -54,6 +63,7 @@
             transition: transform 0.1s linear, top 0.1s linear, left 0.1s linear;
         }
 
+        /* --- Cartes --- */
         .step-card {
             position: relative; background: white; border-radius: 24px; padding: 2rem;
             width: 100%; max-width: 380px; z-index: 10;
@@ -81,15 +91,14 @@
         h2 { font-size: 1.8rem; font-weight: 800; margin-bottom: 1rem; letter-spacing: -0.02em; color: #000000; }
         p { font-size: 1.05rem; line-height: 1.6; color: #666; }
         
+        /* --- Galerie --- */
         .passions-gallery { width: 100%; overflow: hidden; position: relative; margin-top: 15px; }
         .passions-track { display: flex; gap: 10px; width: max-content; animation: scrollGallery 30s linear infinite; }
         .passions-gallery:hover .passions-track { animation-play-state: paused; }
         @keyframes scrollGallery { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-        
-        /* Images forcées pour éviter le collapse */
         .gallery-img { flex: 0 0 140px; height: 200px; border-radius: 12px; object-fit: cover; border: 1px solid #f3f4f6; background-color: #f3f4f6; }
         
-        /* Boutons */
+        /* --- Boutons --- */
         .btn-whatsapp {
             background-color: #00AA6C; color: white; padding: 18px 36px; border-radius: 50px;
             font-weight: 600; font-size: 1.2rem; display: inline-flex; align-items: center; gap: 10px;
@@ -110,6 +119,7 @@
         .feature-list li { display: flex; align-items: center; margin-bottom: 8px; color: #4b5563; }
         .check-icon { color: #00AA6C; margin-right: 10px; width: 20px; }
 
+        /* --- Reviews --- */
         .reviews-wrapper { display: flex; flex-direction: column; gap: 15px; height: 300px; overflow: hidden; position: relative; }
         .reviews-track { display: flex; flex-direction: column; gap: 15px; animation: scrollUp 15s linear infinite; }
         .reviews-wrapper:hover .reviews-track { animation-play-state: paused; }
@@ -118,6 +128,7 @@
         .review-header { display: flex; align-items: center; margin-bottom: 5px; font-weight: 600; color: #1d1d1f; font-size: 0.9rem; }
         .stars { color: #fbbf24; margin-right: 5px; }
 
+        /* --- FAQ --- */
         .faq-item { border-bottom: 1px solid #f3f4f6; padding: 10px 0; }
         .faq-item:last-child { border-bottom: none; }
         details > summary { list-style: none; cursor: pointer; font-weight: 600; color: #1d1d1f; display: flex; justify-content: space-between; align-items: center; padding: 5px 0; }
@@ -129,6 +140,7 @@
 </head>
 <body>
 
+    <!-- Intro -->
     <div class="text-center pt-20 pb-10 px-4">
         <h1 class="main-title text-4xl md:text-5xl mb-4">
             Je commence ma <span class="text-trip special-font">transformation</span> aujourd'hui.
@@ -323,7 +335,7 @@
 
             let percentage = currentProgress / travelDistance;
 
-            // CORRECTION : Assure que l'avion atteint bien le bouton à la fin
+            // Correction: Toujours atteindre le bouton final si on est en bas de page
             const scrollPosition = window.scrollY + window.innerHeight;
             const bodyHeight = document.body.scrollHeight;
             
@@ -375,13 +387,12 @@
         });
         resizeObserver.observe(container);
 
-        // CORRECTION : Force le redessin régulier pour s'adapter au chargement des images
+        // Force redessin régulier pendant le chargement
         let drawInterval = setInterval(() => {
             drawPath();
             animatePlane();
         }, 500);
         
-        // Arrête le redessin forcé après 5 secondes (quand tout est chargé)
         setTimeout(() => clearInterval(drawInterval), 5000);
 
         window.addEventListener('resize', () => { drawPath(); animatePlane(); });
