@@ -11,12 +11,7 @@
     <title>Hystt.fr | Coach Sportif en Ligne Expert</title>
     <meta name="description" content="Transformez votre corps avec Frank, expert en coaching sportif en ligne. +260 élèves satisfaits.">
     
-    <!-- 
-        NOUVEAU FAVICON PREMIUM "SHINY" 
-        - Cercle vert Hystt (#00AA6C)
-        - Lettre H avec dégradé "Lumière" et ombre portée pour l'effet élégant
-        - Marges de sécurité pour éviter les contours bizarres
-    -->
+    <!-- FAVICON -->
     <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjggMTI4Ij48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImdyYWQxIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmZmZmZmO3N0b3Atb3BhY2l0eToxIiAvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6I2UwZmZlMDtzdG9wLW9wYWNpdHk6MSIgLz48L2xpbmVhckdyYWRpZW50PjxmaWx0ZXIgaWQ9ImRyb3BTaGFkb3ciIHg9Ii0yMCUiIHk9Ii0yMCUiIHdpZHRoPSIxNDAlIiBoZWlnaHQ9IjE0MCUiPjxmZUdhdXNzaWFuQmx1ciBpbj0iU291cmNlQWxwaGEiIHN0ZERldmlhdGlvbj0iMiIgLz48ZmVPZmZzZXQgZHg9IjEiIGR5PSIyIiByZXN1bHQ9Im9mZnNldGJsdXIiIC8+PGZlQ29tcG9uZW50VHJhbnNmZXI+PGZlRnVuY0EgdHlwZT0ibGluZWFyIiBzbG9wZT0iMC4zIiAvPjwvZmVDb21wb25lbnRUcmFuc2Zlcj48ZmVNZXJnZT48ZmVNZXJnZU5vZGUgLz48ZmVNZXJnZU5vZGUgaW49IlNvdXJjZUdyYXBoaWMiIC8+PC9mZU1lcmdlPjwvZmlsdGVyPjwvZGVmcz48Y2lyY2xlIGN4PSI2NCIgY3k9IjY0IiByPSI2MCIgZmlsbD0iIzAwQUE2QyIgLz48dGV4dCB4PSI2NCIgeT0iOTIiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC13ZWlnaHQ9ImJvbGQiIGZvbnQtc2l6ZT0iODAiIGZpbGw9InVybCgjZ3JhZDEpIiBmaWx0ZXI9InVybCgjZHJvcFNoYWRvdykiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkg8L3RleHQ+PC9zdmc+">
 
     <!-- FONTS -->
@@ -98,6 +93,30 @@
         @keyframes scrollGallery { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
         .gallery-img { flex: 0 0 140px; height: 200px; border-radius: 12px; object-fit: cover; border: 1px solid #f3f4f6; background-color: #f3f4f6; }
         
+        /* --- NOUVEAU : Slider Transformations (Scroll Manuel) --- */
+        .transformation-slider {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding-bottom: 10px;
+            margin-bottom: 1rem;
+            /* Cache la scrollbar */
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+        .transformation-slider::-webkit-scrollbar { display: none; } /* Chrome */
+        
+        .transfo-img {
+            flex: 0 0 100%; /* Prend toute la largeur de la carte */
+            height: 160px;
+            object-fit: cover;
+            border-radius: 12px;
+            scroll-snap-align: center;
+            border: 1px solid #f3f4f6;
+        }
+        .swipe-hint { font-size: 0.75rem; color: #9ca3af; text-align: center; margin-top: -10px; margin-bottom: 15px; }
+
         /* --- Boutons --- */
         .btn-whatsapp {
             background-color: #00AA6C; color: white; padding: 18px 36px; border-radius: 50px;
@@ -196,16 +215,30 @@
             <p>Un service <span class="highlight">100% personnalisé</span> accessible partout. Plus besoin de rendez-vous physiques contraignants, je suis dans votre poche.</p>
         </div>
 
-        <!-- 3: PDM -->
+        <!-- 3: PDM (Modifié avec Slider) -->
         <div class="step-card step-right" data-index="3">
-            <img src="https://i.postimg.cc/0Ngnqyfp/Theo-PDM.png" class="w-full h-40 object-cover rounded-xl mb-4" alt="Prise de masse" loading="eager">
+            <div class="transformation-slider">
+                <!-- Image 1 : Theo -->
+                <img src="https://i.postimg.cc/0Ngnqyfp/Theo-PDM.png" class="transfo-img" alt="Prise de masse 1">
+                <!-- Image 2 : Ana (AJOUTÉE) -->
+                <img src="https://i.postimg.cc/dQfvMxxw/Ana-PDM.png" class="transfo-img" alt="Prise de masse 2">
+            </div>
+            <div class="swipe-hint">← Swipez pour voir plus →</div>
+            
             <h2>Prise de Masse</h2>
             <p>Développez un physique <span class="highlight">athlétique</span> et <span class="highlight">puissant</span> grâce à des méthodes que j'ai testées et qui ont été <span class="highlight">approuvées</span> par mes clients.</p>
         </div>
 
-        <!-- 4: Perte de Poids -->
+        <!-- 4: Perte de Poids (Modifié avec Slider) -->
         <div class="step-card step-left" data-index="4">
-            <img src="https://i.postimg.cc/rs6RDDD0/Frank-PDMG.png" class="w-full h-40 object-cover rounded-xl mb-4" alt="Perte de poids" loading="eager">
+            <div class="transformation-slider">
+                <!-- Image 1 : Frank -->
+                <img src="https://i.postimg.cc/rs6RDDD0/Frank-PDMG.png" class="transfo-img" alt="Perte de poids 1">
+                <!-- Image 2 : Lucas (AJOUTÉE) -->
+                <img src="https://i.postimg.cc/440ZCSSK/Lucas-PDG.png" class="transfo-img" alt="Perte de poids 2">
+            </div>
+            <div class="swipe-hint">← Swipez pour voir plus →</div>
+
             <h2>Perte de Poids</h2>
             <p>Affinez votre silhouette durablement. Pas de régime restrictif, juste un <span class="highlight">rééquilibrage</span> intelligent et <span class="highlight">efficace</span>.</p>
         </div>
@@ -404,4 +437,3 @@
 
     </script>
 </body>
-</html>
