@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -67,10 +67,13 @@
         .bento-card:hover { transform: translateY(-3px); }
 
         /* Scroll Manuel pour Moteurs */
+        .slider-wrapper { position: relative; }
+        
         .motors-scroll {
             display: flex; gap: 12px; overflow-x: auto; 
             scroll-snap-type: x mandatory; padding-bottom: 10px;
             scrollbar-width: none;
+            scroll-behavior: smooth;
         }
         .motors-scroll::-webkit-scrollbar { display: none; }
 
@@ -79,7 +82,7 @@
             aspect-ratio: 9/16; 
             border-radius: 12px;
             overflow: hidden;
-            scroll-snap-align: start;
+            scroll-snap-align: center; /* Centrer l'image au scroll */
         }
         .motor-img-card img { width: 100%; height: 100%; object-fit: cover; }
 
@@ -152,13 +155,38 @@
         }
 
         /* Transformations (Horizontal) */
+        .transfo-slider {
+            display: flex; gap: 10px; overflow-x: auto;
+            scroll-snap-type: x mandatory; padding-bottom: 5px;
+            scrollbar-width: none;
+            scroll-behavior: smooth;
+        }
+        .transfo-slider::-webkit-scrollbar { display: none; }
+        
         .transfo-img {
             flex: 0 0 240px; /* Taille fixe pour le scroll */
             height: 180px;
             object-fit: cover;
             border-radius: 16px;
             border: 1px solid #f3f4f6;
+            scroll-snap-align: center; /* Important: s'arrête net sur l'image */
         }
+
+        /* --- BOUTONS NAVIGATION SLIDER --- */
+        .nav-btn {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            width: 32px; height: 32px; border-radius: 50%;
+            background: white; border: 1px solid rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; z-index: 20; opacity: 0.9; transition: all 0.2s;
+        }
+        .nav-btn:hover { transform: translateY(-50%) scale(1.1); opacity: 1; background: #f5f5f7; }
+        .nav-btn:active { transform: translateY(-50%) scale(0.95); }
+        .nav-btn.prev { left: 10px; }
+        .nav-btn.next { right: 10px; }
+        .nav-btn svg { width: 16px; height: 16px; color: var(--dark); }
+
 
         /* Avis Card */
         .review-card {
@@ -231,7 +259,7 @@
             </div>
         </div>
 
-        <!-- Box 2: Moteurs (Scroll MANUEL) -->
+        <!-- Box 2: Moteurs (Scroll MANUEL AVEC BOUTONS) -->
         <div class="bento-card">
             <div class="mb-4">
                 <div class="flex justify-between items-baseline">
@@ -241,14 +269,23 @@
                 <p class="text-sm text-gray-500 mt-2 leading-relaxed">Voyager, m'entraîner et m'adapter en permanence pour allier ces deux passions. C'est ce lifestyle que je vous enseigne.</p>
             </div>
             
-            <!-- Retour au scroll manuel pour éviter les disparitions -->
-            <div class="motors-scroll">
-                <div class="motor-img-card"><img src="https://i.postimg.cc/6qhYj6fM/A7C06861.jpg" alt="Voyage"></div>
-                <div class="motor-img-card"><img src="https://i.postimg.cc/HW0Zs31z/Capture-d-ecran-2025-11-21-a-16-52-00.png" alt="Sport"></div>
-                <div class="motor-img-card"><img src="https://i.postimg.cc/XNKH7x6g/Capture-d-ecran-2025-11-21-a-16-53-07.png" alt="Food"></div>
-                <div class="motor-img-card"><img src="https://i.postimg.cc/VLY7SMzH/IMG-2009.jpg" alt="Life"></div>
-                <div class="motor-img-card"><img src="https://i.postimg.cc/hPSCJxK6/IMG-5916.jpg" alt="Work"></div>
-                <div class="motor-img-card"><img src="https://i.postimg.cc/TYRkymTZ/IMG-7681.jpg" alt="Friends"></div>
+            <div class="slider-wrapper">
+                <!-- Boutons Navigation -->
+                <div class="nav-btn prev" onclick="scrollSlider('motors-slider', 'left')">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </div>
+                <div class="nav-btn next" onclick="scrollSlider('motors-slider', 'right')">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </div>
+
+                <div class="motors-scroll" id="motors-slider">
+                    <div class="motor-img-card"><img src="https://i.postimg.cc/6qhYj6fM/A7C06861.jpg" alt="Voyage"></div>
+                    <div class="motor-img-card"><img src="https://i.postimg.cc/HW0Zs31z/Capture-d-ecran-2025-11-21-a-16-52-00.png" alt="Sport"></div>
+                    <div class="motor-img-card"><img src="https://i.postimg.cc/XNKH7x6g/Capture-d-ecran-2025-11-21-a-16-53-07.png" alt="Food"></div>
+                    <div class="motor-img-card"><img src="https://i.postimg.cc/VLY7SMzH/IMG-2009.jpg" alt="Life"></div>
+                    <div class="motor-img-card"><img src="https://i.postimg.cc/hPSCJxK6/IMG-5916.jpg" alt="Work"></div>
+                    <div class="motor-img-card"><img src="https://i.postimg.cc/TYRkymTZ/IMG-7681.jpg" alt="Friends"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -275,10 +312,18 @@
             <p>Oubliez les contraintes. Je vous accompagne partout via votre téléphone. Un suivi <span class="highlight no-break">sur-mesure</span>, adapté à votre rythme de vie.</p>
         </div>
 
-        <!-- 2: PDM (Scroll Infini) -->
+        <!-- 2: PDM (Slider Avec Boutons & Snap) -->
         <div class="step-card step-left" data-index="1">
-            <div class="marquee-wrapper mb-4">
-                <div class="marquee-track scroll-medium">
+            <div class="slider-wrapper mb-4">
+                <!-- Boutons -->
+                <div class="nav-btn prev" onclick="scrollSlider('pdm-slider', 'left')">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </div>
+                <div class="nav-btn next" onclick="scrollSlider('pdm-slider', 'right')">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </div>
+
+                <div class="transfo-slider" id="pdm-slider">
                     <!-- Groupe 1 -->
                     <img src="https://i.postimg.cc/0Ngnqyfp/Theo-PDM.png" class="transfo-img" alt="PDM 1">
                     <img src="https://i.postimg.cc/dQfvMxxw/Ana-PDM.png" class="transfo-img" alt="PDM 2">
@@ -291,10 +336,18 @@
             <p class="text-sm mt-2">Développez un physique athlétique avec des méthodes éprouvées.</p>
         </div>
 
-        <!-- 3: Perte de Poids (Scroll Infini) -->
+        <!-- 3: Perte de Poids (Slider Avec Boutons & Snap) -->
         <div class="step-card step-right" data-index="2">
-            <div class="marquee-wrapper mb-4">
-                <div class="marquee-track scroll-medium">
+            <div class="slider-wrapper mb-4">
+                <!-- Boutons -->
+                <div class="nav-btn prev" onclick="scrollSlider('sante-slider', 'left')">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </div>
+                <div class="nav-btn next" onclick="scrollSlider('sante-slider', 'right')">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </div>
+
+                <div class="transfo-slider" id="sante-slider">
                     <!-- Groupe 1 -->
                     <img src="https://i.postimg.cc/rs6RDDD0/Frank-PDMG.png" class="transfo-img" alt="Perte Poids 1">
                     <img src="https://i.postimg.cc/440ZCSSK/Lucas-PDG.png" class="transfo-img" alt="Perte Poids 2">
@@ -418,6 +471,37 @@
     </footer>
 
     <script>
+        // --- LOGIQUE NAVIGATION SLIDER (BOUTONS) ---
+        function scrollSlider(id, direction) {
+            const slider = document.getElementById(id);
+            
+            // Calculer la largeur exacte de l'élément + le gap
+            // On récupère le premier enfant (soit img, soit div)
+            const item = slider.querySelector('img') || slider.querySelector('.motor-img-card');
+            
+            if (item) {
+                // On essaie de récupérer le gap via le style calculé
+                const style = window.getComputedStyle(slider);
+                const gap = parseFloat(style.gap) || 10; // 10px par défaut si non trouvé
+                const itemWidth = item.getBoundingClientRect().width;
+                const scrollAmount = itemWidth + gap;
+
+                if (direction === 'left') {
+                    slider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                } else {
+                    slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                }
+            } else {
+                // Fallback si pas d'item trouvé
+                const fallbackAmount = 250;
+                if (direction === 'left') {
+                    slider.scrollBy({ left: -fallbackAmount, behavior: 'smooth' });
+                } else {
+                    slider.scrollBy({ left: fallbackAmount, behavior: 'smooth' });
+                }
+            }
+        }
+
         // --- ANIMATION ROADMAP ---
         const container = document.querySelector('.roadmap-container');
         const svgPath = document.getElementById('path-line');
